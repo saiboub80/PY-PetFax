@@ -1,19 +1,33 @@
 from flask import Flask
+# config                    
+from flask import Flask
+from flask_migrate import Migrate 
 
-#Factory
+# factory
+# factory 
+def create_app(): 
+    app = Flask(__name__)
 
-def create_app():
-    app= Flask(__name__)
+    # database config
 
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Alizeta2018$@localhost:5432/petfax'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+    from . import models 
+    models.db.init_app(app)
+    migrate= Migrate(app,models.db)
+            
+    # index route
     @app.route('/')
-    def hello():
+    def index(): 
         return 'Hello, PetFax!'
-    
-    #register pet Blueprint
-    
-    from . import pet
+
+    # register pet blueprint 
+    from . import pet 
     app.register_blueprint(pet.bp)
 
-    #return app
-    
+    # register fact blueprint 
+    from . import fact
+    app.register_blueprint(fact.bp)
+
+    # return the app 
     return app
