@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100vh; /* Full height of the viewport */
+    justify-content: flex-start; /* Align items to the start of the container */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.callout {
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.pets-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.show-pet img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+}
+
+.container a {
+    text-decoration: none;
+    color: blue;
+    margin-top: 20px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
