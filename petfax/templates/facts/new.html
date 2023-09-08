@@ -1,39 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetFax | Submit Facts</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="login-box">
-        <h2>Submit Fax</h2>
-        <div class="callout">
-            <h4>If you have some fun animal facts you'd like to share, please submit them! We may use them in the future.</h4>
-        </div>
-       
-        <form action="/facts" method="Post">
-          <div class="user-box">
+{% extends "layout.html" %}
+{% block content %}
+<div class="login-box">
+    <h2>Submit Fax</h2>
+    <div class="callout">
+        <h4>If you have some fun animal facts you'd like to share, please submit them! We may use them in the future.</h4>
+    </div>
+    <form action="/facts" method="Post">
+        <div class="user-box">
             <input name="submitter" type="text" required="">
             <label for="submitter">Name</label>
-          </div>
-          <div class="user-box">
+        </div>
+        <div class="user-box">
             <input name="fact" required="">
             <label for="fact">Fact</label>
-          </div>
-          <a href="/facts" type="submit" value="Submit the Fact">
+        </div>
+        <a href="/facts" type="submit" value="Submit the Fact">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             Submit
-          </a>
-        </form>
-     
-      <a id="goback" href="/pets">⟨　Go back</a>
-    </div>
-</body>
-</html>
+        </a>
+    </form>
+
+  <a id="goback" href="{{url_for('pet.index')}}">⟨　Go back</a>
+</div>
+{% endblock %}
+
+
+
 

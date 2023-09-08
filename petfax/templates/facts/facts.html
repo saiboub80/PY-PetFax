@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="alert alert-primary" role="alert">
+    <h1>UserFax</h1>
+    <ul class="list-group">
+        {% for fact in facts %}
+        <li class="list-group-item">
+            <h4>Submitted by {{ fact.submitter }}</h4>
+            {{ fact.fact }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock content %}
+
