@@ -13,9 +13,9 @@ def new():
 def facts():
     if request.method == 'POST':
         submitter = request.form['submitter']
-        fact = request.form['fact']
+        fact_content = request.form['fact']
 
-        new_fact = models.Fact(submitter=submitter, fact=fact)
+        new_fact = models.Fact(submitter=submitter, fact=fact_content)
         models.db.session.add(new_fact)
         models.db.session.commit()
 
@@ -23,9 +23,9 @@ def facts():
 
     results = models.Fact.query.all()
     for result in results:
-        print(result)
+        pass  # You can remove this line once you add operations
 
-    return render_template('facts/facts.html', facts=results ,title='Facts')
+    return render_template('facts/facts.html', facts=results, title='Facts')
 
 
 # @app.route('/about')
