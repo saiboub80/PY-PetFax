@@ -8,20 +8,20 @@ from flask_migrate import Migrate
 
 db = SQLAlchemy()
 def create_app(config_class=Config):
-    app = Flask(__name__)
-    app.config.from_object(Config)
+    appliction = Flask(__name__)
+    appliction.config.from_object(Config)
 
     from petfax import models
-    models.db.init_app(app)
-    migrate = Migrate(app, models.db)
-    with app.app_context():
+    models.db.init_app(appliction)
+    migrate = Migrate(appliction, models.db)
+    with appliction.app_context():
         db.create_all()
             
     from petfax.pets.routes import pet
     from petfax.fact.routes import fact
 
-    app.register_blueprint(pet)
-    app.register_blueprint(fact)
+    appliction.register_blueprint(pet)
+    appliction.register_blueprint(fact)
 
 
-    return app
+    return appliction
